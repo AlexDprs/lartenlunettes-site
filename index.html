@@ -13,9 +13,16 @@
 <meta property="og:image" content="https://www.lartenlunettes.be/media/magasin.jpg">
 <meta property="og:url" content="https://www.lartenlunettes.be/">
 <meta name="theme-color" content="#0d0d0c">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+@font-face{font-family:"Cormorant Garamond";font-style:italic;font-weight:300;font-display:swap;src:url("fonts/cormorant-garamond-italic-300.ttf") format("truetype")}
+@font-face{font-family:"Cormorant Garamond";font-style:italic;font-weight:400;font-display:swap;src:url("fonts/cormorant-garamond-italic-400.ttf") format("truetype")}
+@font-face{font-family:"Cormorant Garamond";font-style:normal;font-weight:300;font-display:swap;src:url("fonts/cormorant-garamond-300.ttf") format("truetype")}
+@font-face{font-family:"Cormorant Garamond";font-style:normal;font-weight:400;font-display:swap;src:url("fonts/cormorant-garamond-400.ttf") format("truetype")}
+@font-face{font-family:"Cormorant Garamond";font-style:normal;font-weight:500;font-display:swap;src:url("fonts/cormorant-garamond-500.ttf") format("truetype")}
+@font-face{font-family:Jost;font-style:normal;font-weight:300;font-display:swap;src:url("fonts/jost-300.ttf") format("truetype")}
+@font-face{font-family:Jost;font-style:normal;font-weight:400;font-display:swap;src:url("fonts/jost-400.ttf") format("truetype")}
+@font-face{font-family:Jost;font-style:normal;font-weight:500;font-display:swap;src:url("fonts/jost-500.ttf") format("truetype")}
+</style>
 <style>
 /* Mise en page : maison d'optique. Noir du logo et pierre claire en alternance,
    grandes capitales fines, filets d'un pixel, beaucoup d'air.
@@ -31,8 +38,8 @@
   --vert: #5aa832;           /* le vert du logo */
   --filet-clair: rgba(26,26,24,.16);
   --filet-sombre: rgba(238,235,229,.16);
-  --serif: "Cormorant Garamond", "Times New Roman", Georgia, serif;
-  --sans: "Jost", "Futura", "Helvetica Neue", Arial, sans-serif;
+  --serif: "Cormorant Garamond", Georgia, "Times New Roman", serif;
+  --sans: Jost, Arial, "Helvetica Neue", sans-serif;
   color-scheme: light;
 }
 
@@ -230,9 +237,80 @@ section.block { padding: 130px 0; }
 .intro-rayons { max-width: 40em; color: var(--gris); font-size: 1.05rem; margin: -30px 0 56px 260px; }
 
 footer { background: var(--noir); color: var(--gris-clair); border-top: 1px solid var(--filet-sombre); }
+.pied a { color: inherit; }
 .pied { display: flex; justify-content: space-between; align-items: center; gap: 20px; flex-wrap: wrap; padding: 34px 0 40px; font-size: .78rem; letter-spacing: .06em; }
 .pied img { height: 70px; width: auto; }
 .pied .devise { font-family: var(--serif); font-style: italic; font-size: 1.15rem; color: var(--pierre); letter-spacing: 0; }
+
+.pied button {
+  padding: .5rem 0;
+  border: 0;
+  background: none;
+  color: inherit;
+  font: inherit;
+  letter-spacing: inherit;
+  text-decoration: underline;
+  text-underline-offset: .22em;
+  cursor: pointer;
+}
+
+html:has(#documents-legaux[open]) { overflow: hidden; }
+#documents-legaux {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  max-width: none;
+  max-height: none;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: #171715;
+  color: var(--pierre);
+  color-scheme: dark;
+}
+#documents-legaux[open] { display: flex; flex-direction: column; }
+#documents-legaux::backdrop { background: #0d0d0c; }
+@supports (backdrop-filter: blur(1px)) {
+  #documents-legaux { background: linear-gradient(155deg, rgba(48, 49, 43, .68), rgba(15, 16, 14, .92)); }
+  #documents-legaux::backdrop { background: rgba(13, 13, 12, .76); backdrop-filter: blur(24px) saturate(.65); }
+}
+.documents-barre {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: .75rem;
+  padding: max(1rem, env(safe-area-inset-top)) max(1rem, env(safe-area-inset-right)) .9rem max(1rem, env(safe-area-inset-left));
+  border-bottom: 1px solid var(--filet-sombre);
+}
+.documents-choix { display: flex; flex-wrap: wrap; gap: .25rem; }
+.documents-barre button {
+  min-height: 44px;
+  padding: .45rem .85rem;
+  border: 1px solid var(--filet-sombre);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, .06);
+  color: inherit;
+  font: inherit;
+  font-size: .86rem;
+  cursor: pointer;
+}
+.documents-barre button[aria-pressed="true"] {
+  border-color: rgba(255, 255, 255, .4);
+  background: rgba(255, 255, 255, .18);
+}
+.documents-barre button:hover { border-color: var(--pierre); }
+.documents-texte { flex: 1; min-height: 0; overflow: auto; overscroll-behavior: contain; }
+.documents-texte article {
+  width: min(760px, 100% - 2rem);
+  margin-inline: auto;
+  padding: clamp(1.8rem, 6vw, 5rem) 0 max(3rem, env(safe-area-inset-bottom));
+  overflow-wrap: anywhere;
+}
+.documents-texte h3 { margin: 1.7rem 0 .5rem; font-size: 1.65rem; }
+.documents-texte p + p { margin-top: .85rem; }
+.documents-texte h2 + p { margin-top: 1rem; }
 
 /* ---------- Tablette / GSM ---------- */
 @media (max-width: 1000px) {
@@ -549,12 +627,101 @@ footer { background: var(--noir); color: var(--gris-clair); border-top: 1px soli
     <img src="logo-full.png" alt="L'Art en Lunettes" width="36" height="70">
     <span class="devise">Soyez acteur de votre regard.</span>
     <span>L'Art en Lunettes SRL · BE 0777.633.855</span>
+    <span id="liens-legaux"><a href="mentions-legales.html" data-document="mentions">Mentions légales</a> · <a href="politique-confidentialite.html" data-document="confidentialite">Confidentialité</a></span>
   </div>
 </footer>
+
+<dialog id="documents-legaux" aria-labelledby="titre-mentions">
+  <div class="documents-barre">
+    <div class="documents-choix" role="group" aria-label="Choisir un document">
+      <button type="button" data-document="mentions" aria-controls="document-mentions" aria-pressed="true">Mentions légales</button>
+      <button type="button" data-document="confidentialite" aria-controls="document-confidentialite" aria-pressed="false">Confidentialité</button>
+    </div>
+    <button type="button" id="fermer-documents" autofocus>Fermer</button>
+  </div>
+  <div class="documents-texte">
+    <article id="document-mentions">
+      <h2 id="titre-mentions">Mentions légales</h2>
+      <h3>Éditeur du site</h3>
+      <p><strong>L'Art en Lunettes SRL</strong><br>
+        Siège social : Rue du Pilori 27, 7604 Péruwelz, Belgique<br>
+        Établissement / magasin : Rue Pont à la Faulx 28, 7600 Péruwelz, Belgique<br>
+        Numéro d'entreprise (BCE) : 0777.633.855<br>
+        TVA : BE 0777.633.855<br>
+        RPM : Tribunal de l'entreprise du Hainaut, division de Tournai<br>
+        Téléphone : <a href="tel:+3269232784">069 23 27 84</a><br>
+        GSM : <a href="tel:+32487076957">0487 07 69 57</a><br>
+        E-mail : <a href="mailto:mathieu@lartenlunettes.be">mathieu@lartenlunettes.be</a></p>
+      <p>L'activité déclarée comprend notamment le commerce de détail de lunettes de correction, de lentilles et de lunettes solaires. Les prestations proposées sur place sont soumises aux règles professionnelles applicables.</p>
+      <h3>Hébergement</h3>
+      <p>Le site est hébergé par GitHub Pages, GitHub, Inc., 88 Colin P. Kelly Jr Street, San Francisco, CA 94107, États-Unis.</p>
+      <h3>Propriété intellectuelle</h3>
+      <p>Les textes, visuels, logos et vidéos du site sont protégés. Toute réutilisation nécessite l'autorisation de leur titulaire, sauf exception légale.</p>
+    </article>
+    <article id="document-confidentialite" hidden>
+      <h2 id="titre-confidentialite">Politique de confidentialité</h2>
+      <p>Dernière mise à jour : 24 novembre 2026.</p>
+      <h3>Responsable du traitement</h3>
+      <p>L'Art en Lunettes SRL, siège social Rue du Pilori 27, 7604 Péruwelz, Belgique, BE 0777.633.855.<br>
+        E-mail : <a href="mailto:mathieu@lartenlunettes.be">mathieu@lartenlunettes.be</a>.</p>
+      <h3>Données traitées</h3>
+      <p>Ce site vitrine ne contient pas de formulaire et ne permet pas de prendre rendez-vous en ligne. Il propose uniquement des liens de contact par e-mail et par téléphone. Lorsque vous contactez l'entreprise, les coordonnées et informations que vous communiquez peuvent être utilisées pour répondre à votre demande et, si nécessaire, organiser un rendez-vous hors du site. Le site ne demande pas de données de santé.</p>
+      <p>Le traitement repose, selon le contexte, sur la réponse à votre demande et sur les mesures précontractuelles éventuellement nécessaires. Les données sont conservées pendant la durée nécessaire au traitement de la demande, puis supprimées, sauf obligation légale de conservation.</p>
+      <h3>Hébergement et journaux techniques</h3>
+      <p>Le site est publié avec GitHub Pages. GitHub peut traiter certaines données techniques, dont l'adresse IP, pour assurer la sécurité et le fonctionnement du service. Pour plus d'informations sur les traitements de GitHub et les éventuels transferts internationaux, consultez sa <a href="https://docs.github.com/en/site-policy/privacy-policies/github-privacy-statement">politique de confidentialité</a>.</p>
+      <h3>Cookies et services externes</h3>
+      <p>Le site n'utilise pas, à notre connaissance, de cookies statistiques ou publicitaires. Le lien Google Maps ouvre un service externe uniquement après votre clic. Les polices sont hébergées sur ce site.</p>
+      <h3>Vos droits</h3>
+      <p>Vous pouvez demander l'accès, la rectification, l'effacement, la limitation ou vous opposer au traitement de vos données. Contactez l'entreprise à l'adresse e-mail indiquée ci-dessus. Vous pouvez aussi introduire une réclamation auprès de l'<a href="https://www.autoriteprotectiondonnees.be/">Autorité de protection des données</a>.</p>
+    </article>
+  </div>
+</dialog>
 
 <script>
 (function () {
   var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  var documentsLegaux = document.getElementById('documents-legaux');
+  if (typeof documentsLegaux.showModal === 'function') {
+    var choixDocuments = documentsLegaux.querySelectorAll('[data-document]');
+    var texteDocuments = documentsLegaux.querySelector('.documents-texte');
+    var boutonOuvreur;
+
+    function afficherDocument(nom) {
+      choixDocuments.forEach(function (choix) {
+        var actif = choix.dataset.document === nom;
+        choix.setAttribute('aria-pressed', String(actif));
+        document.getElementById(choix.getAttribute('aria-controls')).hidden = !actif;
+      });
+      documentsLegaux.setAttribute('aria-labelledby', 'titre-' + nom);
+      texteDocuments.scrollTop = 0;
+    }
+
+    document.querySelectorAll('#liens-legaux a').forEach(function (lien) {
+      var boutonDocument = document.createElement('button');
+      boutonDocument.type = 'button';
+      boutonDocument.textContent = lien.textContent;
+      boutonDocument.setAttribute('aria-haspopup', 'dialog');
+      boutonDocument.setAttribute('aria-controls', documentsLegaux.id);
+      boutonDocument.addEventListener('click', function () {
+        boutonOuvreur = boutonDocument;
+        afficherDocument(lien.dataset.document);
+        documentsLegaux.showModal();
+        texteDocuments.scrollTop = 0;
+      });
+      lien.replaceWith(boutonDocument);
+    });
+
+    choixDocuments.forEach(function (choix) {
+      choix.addEventListener('click', function () { afficherDocument(choix.dataset.document); });
+    });
+    document.getElementById('fermer-documents').addEventListener('click', function () {
+      documentsLegaux.close();
+    });
+    documentsLegaux.addEventListener('close', function () {
+      if (boutonOuvreur) boutonOuvreur.focus({ preventScroll: true });
+    });
+  }
 
   /* Menu GSM */
   var btn = document.getElementById('menuBtn'), menu = document.getElementById('menu');
