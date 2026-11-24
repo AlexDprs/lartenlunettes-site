@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>L'Art en Lunettes</title>
+<meta name="description" content="L'Art en Lunettes, opticien créateur à Péruwelz. Soyez acteur de votre regard : contrôle de la vue, étude morphologique, montures sur mesure et collection L'Art en Lunettes Création.">
+<link rel="icon" type="image/png" href="logo-face.png">
+<link rel="apple-touch-icon" href="logo-face.png">
+<link rel="canonical" href="https://www.lartenlunettes.be/">
+<meta property="og:title" content="L'Art en Lunettes · Opticien créateur à Péruwelz">
+<meta property="og:description" content="Soyez acteur de votre regard. Contrôle de la vue, étude morphologique, montures sur mesure et collection L'Art en Lunettes Création.">
+<meta property="og:image" content="https://www.lartenlunettes.be/media/magasin.jpg">
+<meta property="og:url" content="https://www.lartenlunettes.be/">
+<meta name="theme-color" content="#0d0d0c">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+/* Mise en page : maison d'optique. Noir du logo et pierre claire en alternance,
+   grandes capitales fines, filets d'un pixel, beaucoup d'air.
+   Une seule animation forte : le visage du logo qui se dessine à la plume. */
+:root {
+  --noir: #0d0d0c;
+  --noir-2: #171715;
+  --pierre: #eeebe5;
+  --pierre-2: #e3dfd7;
+  --encre: #1a1a18;
+  --gris: #77736b;
+  --gris-clair: #a9a59c;
+  --vert: #5aa832;           /* le vert du logo */
+  --filet-clair: rgba(26,26,24,.16);
+  --filet-sombre: rgba(238,235,229,.16);
+  --serif: "Cormorant Garamond", "Times New Roman", Georgia, serif;
+  --sans: "Jost", "Futura", "Helvetica Neue", Arial, sans-serif;
+  color-scheme: light;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { margin: 0; background: var(--pierre); color: var(--encre); font-family: var(--sans); font-weight: 300; font-size: 17px; line-height: 1.7; overflow-x: hidden; -webkit-font-smoothing: antialiased; }
+a { color: inherit; }
+a:focus-visible, button:focus-visible { outline: 1px solid var(--vert); outline-offset: 5px; }
+h1, h2, h3 { font-family: var(--serif); font-weight: 300; line-height: 1.04; margin: 0; text-wrap: balance; letter-spacing: -.005em; }
+h2 { font-size: clamp(2.3rem, 5vw, 3.8rem); }
+p { margin: 0; }
+em { font-style: italic; }
+.wrap { width: min(1240px, 100% - 48px); margin-inline: auto; }
+.label { font-family: var(--sans); font-size: .72rem; font-weight: 400; letter-spacing: .32em; text-transform: uppercase; }
+.dark { background: var(--noir); color: var(--pierre); }
+.dark .muted { color: var(--gris-clair); }
+.muted { color: var(--gris); }
+
+/* ---------- En-tête ---------- */
+header { position: sticky; top: 0; z-index: 40; background: var(--noir); color: var(--pierre); border-bottom: 1px solid var(--filet-sombre); }
+.bar { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 20px; padding: 14px 0; }
+.logo { display: flex; align-items: center; gap: 12px; text-decoration: none; justify-self: start; }
+.logo img { height: 46px; width: auto; display: block; }
+nav.main { display: flex; gap: 30px; }
+nav.main a { text-decoration: none; font-size: .72rem; letter-spacing: .26em; text-transform: uppercase; font-weight: 400; color: var(--gris-clair); transition: color .3s; }
+nav.main a:hover { color: var(--pierre); }
+.rdv { justify-self: end; text-decoration: none; font-size: .72rem; letter-spacing: .26em; text-transform: uppercase; font-weight: 400; padding-bottom: 4px; border-bottom: 1px solid var(--vert); }
+.menu-btn { display: none; justify-self: end; background: none; border: 0; color: var(--pierre); cursor: pointer; padding: 8px 0; font: inherit; font-size: .72rem; letter-spacing: .26em; text-transform: uppercase; }
+nav.main .nav-tel { display: none; }
+
+/* ---------- Accueil ---------- */
+.hero { position: relative; }
+.hero-grid { display: grid; grid-template-columns: 1.15fr .85fr; gap: 40px; align-items: center; min-height: min(78vh, 760px); padding: 72px 0 56px; }
+.hero .label { color: var(--gris-clair); display: flex; align-items: center; gap: 16px; }
+.hero .label::before { content: ""; width: 44px; height: 1px; background: var(--vert); }
+.hero h1 { margin-top: 30px; font-size: clamp(3.2rem, 8.4vw, 7.6rem); line-height: .96; }
+.hero h1 em { display: block; padding-left: .9em; }
+.hero .intro { margin-top: 34px; max-width: 30em; font-size: 1.05rem; color: var(--gris-clair); }
+.actions { display: flex; gap: 34px; margin-top: 40px; align-items: center; flex-wrap: wrap; }
+.btn { display: inline-block; text-decoration: none; font-size: .74rem; letter-spacing: .26em; text-transform: uppercase; font-weight: 400; padding: 17px 30px; border: 1px solid currentColor; transition: background .35s, color .35s; }
+.dark .btn:hover { background: var(--pierre); color: var(--noir); }
+.btn:hover { background: var(--encre); color: var(--pierre); }
+.lien { text-decoration: none; font-size: .74rem; letter-spacing: .26em; text-transform: uppercase; font-weight: 400; display: inline-flex; gap: 14px; align-items: center; }
+.lien::after { content: ""; width: 36px; height: 1px; background: currentColor; transition: width .35s; }
+.lien:hover::after { width: 60px; }
+
+.portrait { position: relative; justify-self: center; width: min(100%, 400px); }
+.portrait svg { width: 100%; height: auto; display: block; overflow: visible; }
+.portrait .trait { fill: var(--pierre); stroke: var(--pierre); stroke-width: 0; }
+.portrait .sourcil { fill: var(--vert); }
+.portrait.draw .trait { fill: transparent; stroke-width: 1.1; stroke-dasharray: var(--len); stroke-dashoffset: var(--len); animation: plume 4.2s cubic-bezier(.5,.1,.3,1) .4s forwards, encre 1.4s ease 4.2s forwards; }
+.portrait.draw .sourcil { opacity: 0; animation: apparait 1s ease 5s forwards; }
+@keyframes plume { to { stroke-dashoffset: 0; } }
+@keyframes encre { to { fill: var(--pierre); stroke-width: 0; } }
+@keyframes apparait { to { opacity: 1; } }
+.portrait figcaption { margin-top: 26px; text-align: center; font-family: var(--serif); font-style: italic; font-size: 1.05rem; color: var(--gris-clair); }
+
+.hero-foot { border-top: 1px solid var(--filet-sombre); display: grid; grid-template-columns: repeat(3, 1fr); }
+.hero-foot div { padding: 22px 0; display: grid; gap: 2px; }
+.hero-foot div + div { padding-left: 28px; border-left: 1px solid var(--filet-sombre); }
+.hero-foot .label { font-size: .64rem; color: var(--gris-clair); }
+.hero-foot a, .hero-foot span.v { font-family: var(--serif); font-size: 1.3rem; text-decoration: none; }
+
+/* ---------- Bandeau ---------- */
+.bandeau { overflow: hidden; white-space: nowrap; border-bottom: 1px solid var(--filet-clair); background: var(--pierre); }
+.bandeau-piste { display: inline-flex; animation: defile 70s linear infinite; padding: 26px 0; }
+.bandeau:hover .bandeau-piste { animation-play-state: paused; }
+.bandeau-piste span { font-family: var(--serif); font-style: italic; font-weight: 300; font-size: clamp(1.7rem, 3.4vw, 2.6rem); display: inline-flex; align-items: center; gap: 44px; padding-right: 44px; }
+.bandeau-piste span::after { content: ""; width: 7px; height: 7px; border-radius: 50%; background: var(--vert); }
+@keyframes defile { to { transform: translateX(-50%); } }
+
+/* ---------- Sections ---------- */
+section.block { padding: 130px 0; }
+.tete { display: grid; grid-template-columns: 220px 1fr; gap: 40px; margin-bottom: 70px; align-items: baseline; }
+.tete .label { color: var(--gris); padding-top: 14px; }
+.dark .tete .label { color: var(--gris-clair); }
+
+/* Manifeste */
+.manifeste { display: grid; grid-template-columns: 220px 1fr; gap: 40px; }
+.manifeste .label { color: var(--gris); padding-top: 16px; }
+.manifeste blockquote { margin: 0; font-family: var(--serif); font-weight: 300; font-size: clamp(1.9rem, 3.6vw, 3.1rem); line-height: 1.22; max-width: 22em; }
+.manifeste blockquote em { color: var(--vert); }
+.signature { margin-top: 40px; display: flex; gap: 40px; flex-wrap: wrap; }
+.signature div { display: grid; }
+.signature strong { font-family: var(--serif); font-weight: 400; font-size: 1.35rem; }
+.signature span { font-size: .72rem; letter-spacing: .24em; text-transform: uppercase; color: var(--gris); }
+
+/* Savoir-faire */
+.liste { border-top: 1px solid var(--filet-clair); }
+.ligne { display: grid; grid-template-columns: 220px 1fr 1fr; gap: 40px; padding: 34px 0; border-bottom: 1px solid var(--filet-clair); align-items: baseline; position: relative; }
+.ligne::after { content: ""; position: absolute; left: 0; bottom: -1px; height: 1px; width: 0; background: var(--vert); transition: width .7s cubic-bezier(.5,.1,.3,1); }
+.ligne:hover::after { width: 100%; }
+.ligne .label { color: var(--gris); }
+.ligne h3 { font-size: clamp(1.7rem, 3vw, 2.4rem); transition: transform .5s cubic-bezier(.5,.1,.3,1); }
+.ligne:hover h3 { transform: translateX(12px); }
+.ligne p { color: var(--gris); max-width: 30em; }
+
+/* Collection */
+.collection { display: grid; grid-template-columns: .9fr 1.1fr; gap: 80px; align-items: center; }
+.collection-texte { display: grid; gap: 24px; }
+.collection-texte .label { color: var(--gris-clair); }
+.collection-texte p { color: var(--gris-clair); max-width: 30em; }
+.collection-texte .logo-marque { width: 120px; height: auto; margin-bottom: 8px; }
+.plaques { display: grid; grid-template-columns: repeat(6, 1fr); gap: 14px; align-items: end; }
+.plaque { display: grid; gap: 14px; }
+.plaque .matiere { aspect-ratio: 1 / 3.4; border-radius: 60px 60px 8px 8px; box-shadow: inset 0 1px 0 rgba(255,255,255,.25), inset -10px 0 24px rgba(0,0,0,.25), 0 30px 40px -24px rgba(0,0,0,.9); transition: transform .6s cubic-bezier(.5,.1,.3,1); position: relative; overflow: hidden; }
+.plaque .matiere::after { content: ""; position: absolute; top: 0; bottom: 0; left: 18%; width: 14%; background: linear-gradient(90deg, transparent, rgba(255,255,255,.28), transparent); }
+.plaque:nth-child(even) .matiere { transform: translateY(-36px); }
+.plaque:hover .matiere { transform: translateY(-50px); }
+.plaque span { font-family: var(--serif); font-style: italic; font-size: 1rem; color: var(--gris-clair); text-align: center; line-height: 1.2; }
+.ecaille { background: radial-gradient(ellipse 30% 18% at 30% 20%, #2a1206 40%, transparent 70%), radial-gradient(ellipse 26% 14% at 70% 45%, #3a1a08 40%, transparent 70%), radial-gradient(ellipse 30% 16% at 35% 72%, #2a1206 40%, transparent 70%), radial-gradient(ellipse 20% 12% at 75% 88%, #4a2309 40%, transparent 70%), linear-gradient(170deg, #c98a3c, #8a4a18 55%, #b8722e); }
+.vert-bouteille { background: linear-gradient(170deg, #1f5a3a, #0c2c1c 60%, #174a2f); }
+.cerise { background: linear-gradient(170deg, #b5172f, #6a0818 60%, #9a1028); }
+.bleu-nuit { background: linear-gradient(170deg, #26365e, #0e1630 60%, #1d2a4f); }
+.miel { background: linear-gradient(170deg, rgba(232,170,70,.95), rgba(176,104,26,.95) 60%, rgba(214,146,52,.95)); }
+.cristal-rose { background: linear-gradient(170deg, rgba(240,196,196,.75), rgba(214,150,160,.6) 60%, rgba(236,186,190,.75)); }
+.note-plaques { margin-top: 34px; font-size: .8rem; color: var(--gris-clair); text-align: right; }
+
+/* Sur mesure */
+.etapes { display: grid; grid-template-columns: repeat(4, 1fr); border-top: 1px solid var(--filet-clair); }
+.etape { padding: 34px 30px 10px 0; display: grid; gap: 14px; align-content: start; }
+.etape + .etape { padding-left: 30px; border-left: 1px solid var(--filet-clair); }
+.etape .n { font-family: var(--serif); font-size: 3.4rem; font-weight: 300; line-height: 1; color: var(--vert); }
+.etape h3 { font-size: 1.7rem; }
+.etape p { color: var(--gris); font-size: .97rem; }
+
+/* Hors les murs */
+.ailleurs { background: var(--pierre-2); }
+.duo { display: grid; grid-template-columns: 1fr 1fr; gap: 0; border-top: 1px solid var(--filet-clair); }
+.duo article { padding: 40px 50px 10px 0; display: grid; gap: 16px; align-content: start; }
+.duo article + article { padding-left: 50px; border-left: 1px solid var(--filet-clair); }
+.duo .label { color: var(--vert); }
+.duo h3 { font-size: clamp(2rem, 3.4vw, 2.8rem); }
+.duo p { color: var(--gris); max-width: 28em; }
+
+/* Contact */
+.contact { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; }
+.contact h2 em { color: var(--vert); }
+.coord { margin-top: 44px; display: grid; gap: 28px; }
+.coord div { display: grid; gap: 4px; }
+.coord .label { color: var(--gris-clair); font-size: .64rem; }
+.coord a, .coord span.v { font-family: var(--serif); font-size: clamp(1.5rem, 2.6vw, 2rem); text-decoration: none; line-height: 1.25; }
+.coord a:hover { color: var(--vert); }
+.coord a.lien { font-family: var(--sans); font-size: .72rem; margin-top: 8px; }
+.horaires { align-self: start; border-top: 1px solid var(--filet-sombre); }
+.horaires table { width: 100%; border-collapse: collapse; font-variant-numeric: lining-nums tabular-nums; }
+.horaires th, .horaires td { padding: 20px 0; border-bottom: 1px solid var(--filet-sombre); text-align: left; vertical-align: baseline; }
+.horaires th { font-family: var(--serif); font-weight: 400; font-size: 1.35rem; }
+.horaires td { text-align: right; color: var(--gris-clair); }
+.horaires tr.now th { color: var(--vert); }
+.etat { margin-top: 22px; display: flex; align-items: center; gap: 12px; font-size: .72rem; letter-spacing: .24em; text-transform: uppercase; color: var(--gris-clair); }
+.etat i { width: 7px; height: 7px; border-radius: 50%; background: var(--gris); }
+.etat.ouvert i { background: var(--vert); box-shadow: 0 0 0 4px rgba(90,168,50,.18); }
+
+/* Photos et films */
+.photo { margin: 0; overflow: hidden; background: var(--noir-2); }
+.photo img, .photo video { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 1.6s cubic-bezier(.3,.1,.2,1); }
+.photo:hover img { transform: scale(1.035); }
+.legende { margin-top: 14px; font-family: var(--serif); font-style: italic; font-size: 1.02rem; color: var(--gris); }
+.dark .legende { color: var(--gris-clair); }
+.manifeste.avec-portrait { grid-template-columns: 220px 1fr 340px; align-items: start; }
+.portrait-photo { aspect-ratio: 3 / 4.2; }
+.portrait-photo img { object-position: 50% 22%; filter: contrast(1.04); }
+.examen { aspect-ratio: 21 / 8; margin-bottom: 0; }
+.examen img { object-position: 50% 30%; }
+.bloc-examen { margin-bottom: 70px; }
+.collection.avec-vitrine { grid-template-columns: .8fr 1.2fr; align-items: stretch; }
+.vitrine { aspect-ratio: 2 / 3; height: 100%; max-height: 760px; }
+.collection-droite { display: grid; gap: 54px; align-content: center; }
+.collection-droite .plaques { margin-top: 30px; }
+.atelier { position: relative; aspect-ratio: 21 / 8; margin-bottom: 70px; }
+.atelier figcaption { position: absolute; left: 28px; bottom: 22px; color: var(--pierre); font-family: var(--serif); font-style: italic; font-size: 1.15rem; text-shadow: 0 1px 12px rgba(0,0,0,.6); }
+.films { display: grid; grid-template-columns: 1.5fr 1fr; gap: 28px; }
+.films .cote { display: grid; gap: 28px; align-content: start; }
+.film { display: grid; gap: 14px; }
+.film video { width: 100%; aspect-ratio: 16 / 9; background: #000; display: block; }
+.film h3 { font-size: 1.6rem; }
+.film .label { color: var(--gris-clair); font-size: .64rem; }
+.film-grand h3 { font-size: clamp(1.8rem, 3vw, 2.4rem); }
+.magasin { aspect-ratio: 4 / 3; margin-top: 44px; }
+.duo .lien { margin-top: 6px; color: var(--encre); }
+
+/* Prêt-à-porter */
+.rayons { display: grid; grid-template-columns: repeat(3, 1fr); }
+.rayon { padding: 36px 30px 34px; display: grid; gap: 14px; align-content: start; position: relative; border-top: 1px solid var(--filet-clair); }
+.rayon:nth-child(3n+1) { padding-left: 0; }
+.rayon:not(:nth-child(3n+1)) { border-left: 1px solid var(--filet-clair); }
+.rayon .label { color: var(--vert); }
+.rayon h3 { font-size: clamp(2rem, 3.2vw, 2.7rem); font-style: italic; }
+.rayon p { color: var(--gris); font-size: .97rem; max-width: 24em; }
+.rayon ul { list-style: none; padding: 0; margin: 4px 0 0; display: flex; flex-wrap: wrap; gap: 8px; }
+.rayon li { font-size: .7rem; letter-spacing: .18em; text-transform: uppercase; padding: 6px 12px; border: 1px solid var(--filet-clair); }
+.rayon::after { content: ""; position: absolute; left: 0; top: -1px; height: 1px; width: 0; background: var(--vert); transition: width .7s cubic-bezier(.5,.1,.3,1); }
+.rayon:hover::after { width: 100%; }
+.intro-rayons { max-width: 40em; color: var(--gris); font-size: 1.05rem; margin: -30px 0 56px 260px; }
+
+footer { background: var(--noir); color: var(--gris-clair); border-top: 1px solid var(--filet-sombre); }
+.pied { display: flex; justify-content: space-between; align-items: center; gap: 20px; flex-wrap: wrap; padding: 34px 0 40px; font-size: .78rem; letter-spacing: .06em; }
+.pied img { height: 70px; width: auto; }
+.pied .devise { font-family: var(--serif); font-style: italic; font-size: 1.15rem; color: var(--pierre); letter-spacing: 0; }
+
+/* ---------- Tablette / GSM ---------- */
+@media (max-width: 1000px) {
+  .hero-grid, .collection, .contact { grid-template-columns: 1fr; }
+  .hero-grid { min-height: 0; padding: 48px 0 40px; gap: 50px; }
+  .portrait { width: min(70%, 300px); order: -1; }
+  .tete, .manifeste, .manifeste.avec-portrait, .collection.avec-vitrine, .films { grid-template-columns: 1fr; gap: 18px; }
+  .portrait-photo { max-width: 420px; margin-top: 30px; }
+  .vitrine { max-width: 460px; height: auto; }
+  .films { gap: 40px; }
+  .collection.avec-vitrine { gap: 50px; }
+  .ligne { grid-template-columns: 1fr 1.4fr; }
+  .ligne .label { grid-column: 1 / -1; }
+  .etapes { grid-template-columns: 1fr 1fr; }
+  .etape:nth-child(3) { padding-left: 0; border-left: 0; }
+  .etape:nth-child(n+3) { border-top: 1px solid var(--filet-clair); }
+  .rayons { grid-template-columns: 1fr 1fr; }
+  .rayon, .rayon:nth-child(3n+1) { padding-left: 30px; border-left: 1px solid var(--filet-clair); }
+  .rayon:nth-child(odd) { padding-left: 0; border-left: 0; }
+  .intro-rayons { margin: -30px 0 46px 0; }
+  section.block { padding: 96px 0; }
+}
+@media (max-width: 760px) {
+  .wrap { width: calc(100% - 36px); }
+  .bar { grid-template-columns: 1fr auto; }
+  .rdv { display: none; }
+  .menu-btn { display: block; }
+  nav.main { display: none; position: absolute; top: 100%; left: 0; right: 0; background: var(--noir); flex-direction: column; gap: 0; padding: 10px 18px 26px; border-bottom: 1px solid var(--filet-sombre); }
+  nav.main.open { display: flex; }
+  nav.main a { padding: 18px 0; border-bottom: 1px solid var(--filet-sombre); font-size: .78rem; color: var(--pierre); }
+  nav.main .nav-tel { display: block; border: 0; margin-top: 10px; font-family: var(--serif); font-size: 1.6rem; letter-spacing: 0; text-transform: none; }
+  .logo img { height: 40px; }
+  .hero h1 em { padding-left: .5em; }
+  .hero-foot { grid-template-columns: 1fr; }
+  .hero-foot div + div { padding-left: 0; border-left: 0; border-top: 1px solid var(--filet-sombre); }
+  .ligne { grid-template-columns: 1fr; gap: 10px; padding: 28px 0; }
+  .etapes, .duo { grid-template-columns: 1fr; }
+  .etape, .etape + .etape { padding: 30px 0 24px; border-left: 0; }
+  .etape + .etape { border-top: 1px solid var(--filet-clair); }
+  .duo article, .duo article + article { padding: 34px 0 20px; border-left: 0; }
+  .duo article + article { border-top: 1px solid var(--filet-clair); }
+  .plaques { grid-template-columns: repeat(3, 1fr); row-gap: 50px; }
+  .plaque:nth-child(even) .matiere { transform: none; }
+  .note-plaques { text-align: left; }
+  section.block { padding: 76px 0; }
+  .contact { gap: 50px; }
+  .examen, .atelier { aspect-ratio: 4 / 3; }
+  .rayons { grid-template-columns: 1fr; }
+  .rayons .rayon:nth-child(n) { padding: 30px 0 26px; border-left: 0; }
+  .atelier figcaption { left: 18px; bottom: 14px; font-size: 1rem; }
+}
+
+@media (max-width: 1120px) {
+  .bar { grid-template-columns: 1fr auto; }
+  .rdv { display: none; }
+  .menu-btn { display: block; }
+  nav.main { display: none; position: absolute; top: 100%; left: 0; right: 0; background: var(--noir); flex-direction: column; gap: 0; padding: 10px 24px 26px; border-bottom: 1px solid var(--filet-sombre); }
+  nav.main.open { display: flex; }
+  nav.main a { padding: 18px 0; border-bottom: 1px solid var(--filet-sombre); font-size: .78rem; color: var(--pierre); }
+  nav.main .nav-tel { display: block; border: 0; margin-top: 10px; font-family: var(--serif); font-size: 1.6rem; letter-spacing: 0; text-transform: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+  .bandeau { overflow-x: auto; }
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap bar">
+    <a class="logo" href="#accueil" aria-label="L'Art en Lunettes, accueil">
+      <img src="logo-face.png" alt="" width="31" height="46"><img src="logo-text.png" alt="L'Art en Lunettes" width="60" height="46">
+    </a>
+    <nav class="main" id="menu" aria-label="Navigation principale">
+      <a href="#savoir-faire">Savoir-faire</a>
+      <a href="#collection">Collection</a>
+      <a href="#collections">Prêt-à-porter</a>
+      <a href="#sur-mesure">Sur mesure</a>
+      <a href="#films">Films</a>
+      <a href="#contact">Contact</a>
+      <a class="nav-tel" href="tel:+3269232784">069 23 27 84</a>
+    </nav>
+    <a class="rdv" href="#contact">Rendez-vous</a>
+    <button class="menu-btn" id="menuBtn" type="button" aria-controls="menu" aria-expanded="false">Menu</button>
+  </div>
+</header>
+
+<main>
+  <section class="hero dark" id="accueil">
+    <div class="wrap">
+      <div class="hero-grid">
+        <div>
+          <p class="label">L'Art en Lunettes · une règle d'or</p>
+          <h1>Soyez acteur <em>de votre regard.</em></h1>
+          <p class="intro">Opticien créateur à Péruwelz. Nous étudions votre visage et mesurons votre vue, puis nous vous guidons parmi nos collections femme, homme et enfant, ou nous dessinons avec vous une monture sur mesure.</p>
+          <div class="actions">
+            <a class="btn" href="#contact">Prendre rendez-vous</a>
+            <a class="lien" href="#collection">La collection</a>
+          </div>
+        </div>
+        <figure class="portrait" id="portrait" style="margin:0">
+          <svg viewBox="0 0 320 420" aria-hidden="true">
+            <path class="trait" id="trait" d="M135.4 412.0C131.0 411.5 123.6 410.3 118.9 409.1C110.2 407.1 90.5 400.3 84.8 397.4C79.5 394.8 75.2 390.0 73.6 385.1C69.9 373.6 59.0 305.8 59.0 294.3C59.0 291.3 63.0 288.7 66.4 289.6C70.4 290.6 71.6 294.0 73.4 310.0C77.8 347.6 83.0 380.5 84.8 383.0C88.8 388.4 101.2 394.3 117.9 398.8C126.5 401.1 129.4 401.3 146.5 401.4C172.2 401.5 179.3 399.7 184.7 391.6C187.4 387.7 187.5 386.6 190.5 349.5C194.8 296.3 195.6 294.5 218.2 290.0C230.5 287.6 238.2 278.8 239.4 265.7C239.8 262.3 240.9 224.9 242.0 182.5C243.1 140.1 244.5 95.6 245.0 83.5C245.6 71.4 246.1 55.5 246.2 48.2C246.5 36.0 246.3 34.7 244.6 33.4C243.0 32.3 236.8 32.0 211.1 32.0C147.6 32.1 70.7 34.7 64.3 37.1C61.3 38.2 60.3 42.7 59.6 58.5C58.3 84.7 53.5 132.1 45.9 194.0C44.3 207.4 42.8 223.4 42.7 229.5C42.6 239.1 42.9 241.0 44.8 244.7C48.7 252.1 53.3 252.9 59.0 247.2C61.8 244.4 63.4 241.6 64.9 236.5C67.1 229.3 78.9 140.3 81.6 111.0C83.7 88.0 84.7 82.2 87.7 76.7C91.3 70.2 98.7 63.7 105.8 60.8C111.2 58.6 112.8 58.5 133.0 58.6C154.7 58.6 161.5 59.5 164.0 62.5C166.7 65.8 167.0 71.3 165.0 83.6C162.5 99.1 145.6 186.7 134.0 244.4C129.1 269.0 125.0 291.0 125.0 293.1C125.0 297.9 126.7 298.9 136.6 299.9C140.6 300.3 144.2 300.9 144.6 301.3C145.9 302.6 143.1 306.9 139.8 308.7C135.2 311.1 123.7 310.9 120.1 308.2C113.3 303.2 111.5 292.3 114.5 275.9C117.1 261.5 127.8 208.5 138.4 158.0C149.0 107.0 154.5 76.2 153.6 72.6C152.6 68.5 148.7 67.8 130.8 68.2C113.3 68.7 110.2 69.4 104.1 74.6C100.9 77.3 96.8 84.3 95.6 89.2C95.3 90.6 93.6 103.9 92.0 118.7C88.5 149.8 83.5 187.4 77.9 224.9C73.6 253.7 72.4 257.4 65.7 262.3C53.2 271.7 38.2 266.5 31.4 250.5C27.8 241.9 28.3 230.7 34.4 190.5C39.1 158.5 41.1 143.2 43.5 119.5C43.8 116.8 45.4 97.4 47.0 76.5C48.6 55.6 50.3 37.1 50.6 35.5C51.5 30.9 54.7 28.2 60.4 27.1C69.9 25.2 106.9 23.0 161.0 20.9C194.9 19.6 249.0 20.5 253.0 22.3C258.0 24.7 258.0 25.5 257.0 69.6C256.5 92.0 256.2 110.5 256.4 110.7C256.5 110.8 260.8 110.5 265.9 109.9C277.2 108.6 284.6 109.9 288.1 113.6C291.2 116.9 291.6 124.6 289.6 142.1C288.2 154.2 287.4 168.6 284.1 241.7C283.3 259.0 283.0 261.3 280.9 265.2C275.9 274.3 261.6 277.1 257.1 269.7C255.9 267.9 256.0 267.4 258.0 265.8C259.2 264.8 261.3 264.0 262.5 264.0C265.9 264.0 270.8 259.4 271.4 255.7C271.7 253.9 272.4 234.7 273.0 213.0C273.6 187.6 274.7 166.9 276.0 154.9C278.5 130.9 278.7 123.1 276.9 121.9C275.4 120.8 265.2 121.6 261.5 123.0C256.4 124.9 256.3 125.7 255.6 182.0C254.5 263.2 253.6 275.0 247.5 287.0C245.0 291.8 240.0 296.9 235.2 299.4C233.7 300.1 228.0 302.0 222.5 303.4C211.6 306.3 208.5 308.4 207.0 313.9C206.5 315.9 204.6 334.1 202.9 354.5C199.5 395.6 199.0 398.0 192.1 402.5C181.4 409.6 155.1 414.0 135.4 412.0Z"/>
+            <path class="sourcil" d="M206.4 161.5C197.5 153.1 190.1 152.2 176.2 157.9L169.0 160.9L169.0 156.9C169.0 152.2 171.2 149.7 178.4 146.4C184.9 143.4 193.0 142.2 200.2 143.2C207.1 144.1 210.8 145.9 216.6 151.2C221.8 156.0 222.5 160.2 218.7 163.8C215.0 167.2 211.7 166.6 206.4 161.5Z"/>
+          </svg>
+          <figcaption>Chaque monture commence par un visage.</figcaption>
+        </figure>
+      </div>
+      <div class="hero-foot">
+        <div><span class="label">Le magasin</span><span class="v">Rue Pont à la Faulx 28, Péruwelz</span></div>
+        <div><span class="label">Ouvert</span><span class="v">Du mardi au samedi</span></div>
+        <div><span class="label">Téléphone</span><a href="tel:+3269232784">069 23 27 84</a></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="bandeau" aria-label="Nos savoir-faire">
+    <div class="bandeau-piste" id="bandeau">
+      <span>Contrôle de la vue</span>
+      <span>Étude morphologique</span>
+      <span>Montures sur mesure</span>
+      <span>L'Art en Lunettes Création</span>
+      <span>Collections femme, homme et enfant</span>
+      <span>Lunettes de sport</span>
+      <span>Protection balistique</span>
+      <span>Service à domicile</span>
+      <span>Lunettes de sécurité</span>
+    </div>
+  </div>
+
+  <section class="block" id="maison">
+    <div class="wrap manifeste avec-portrait">
+      <p class="label">La maison</p>
+      <div>
+        <blockquote>Des lunettes se portent chaque jour, sur le visage, à la vue de tous. Elles méritent d'être <em>choisies</em>, pas subies. Chez nous, vous décidez, nous vous guidons.</blockquote>
+        <div class="signature">
+          <div><strong>Mathieu</strong><span>De la maison L'Art en Lunettes</span></div>
+          <div><strong>Depuis 2021</strong><span>Péruwelz</span></div>
+        </div>
+      </div>
+      <figure class="photo portrait-photo"><img src="media/portrait.jpg" alt="Portrait en noir et blanc d'un opticien de L'Art en Lunettes, lunettes noires et chemise blanche" width="1179" height="1653" loading="lazy"></figure>
+    </div>
+  </section>
+
+  <section class="block" id="savoir-faire" style="padding-top:0">
+    <div class="wrap">
+      <div class="tete">
+        <p class="label">Savoir-faire</p>
+        <h2>Du premier regard <em>au dernier réglage.</em></h2>
+      </div>
+      <div class="bloc-examen">
+        <figure class="photo examen"><img src="media/examen.jpg" alt="Contrôle de la vue avec une monture d'essai, au magasin" width="1800" height="1200" loading="lazy"></figure>
+        <p class="legende">Le contrôle de la vue, au magasin.</p>
+      </div>
+      <div class="liste">
+        <div class="ligne"><span class="label">La vue</span><h3>Contrôle de la vue</h3><p>Nous mesurons votre vue au magasin, pour des verres parfaitement adaptés à votre quotidien.</p></div>
+        <div class="ligne"><span class="label">Le visage</span><h3>Étude morphologique</h3><p>Forme du visage, carnation, proportions : nous vous conseillons les lignes et les teintes qui vous mettent en valeur.</p></div>
+        <div class="ligne"><span class="label">La création</span><h3>Montures sur mesure</h3><p>Une monture dessinée pour vous seul, à vos mesures et à votre goût.</p></div>
+        <div class="ligne"><span class="label">Les verres</span><h3>Verres L'Art en Lunettes</h3><p>Unifocaux ou progressifs, sous notre propre marque, et choisis pour votre vue.</p></div>
+        <div class="ligne"><span class="label">Le confort</span><h3>Lentilles de contact</h3><p>Adaptation de vos lentilles, conseils d'entretien et réassort de vos produits.</p></div>
+        <div class="ligne"><span class="label">L'entretien</span><h3>Ajustements et réparations</h3><p>Une monture qui glisse ou une vis qui manque : passez nous voir, nous nous en occupons.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block dark" id="collection">
+    <div class="wrap collection avec-vitrine">
+      <figure class="photo vitrine"><img src="media/vitrine.jpg" alt="Le mur de montures éclairé du magasin" width="400" height="600" loading="lazy"></figure>
+      <div class="collection-droite">
+        <div class="collection-texte">
+        <p class="label">La collection</p>
+        <h2>L'Art en Lunettes <em>Création</em></h2>
+        <p>Notre propre marque, pour les montures comme pour les verres. Des modèles que vous ne verrez pas ailleurs, choisis et suivis par ceux qui les ont pensés.</p>
+        <p>Les matières et les couleurs se découvrent au magasin, en main et sur le visage.</p>
+        <div class="actions" style="margin-top:12px"><a class="btn" href="#contact">Découvrir au magasin</a></div>
+      </div>
+        <div>
+          <div class="plaques" aria-label="Exemples de coloris d'acétate">
+          <div class="plaque"><div class="matiere ecaille"></div><span>Écaille</span></div>
+          <div class="plaque"><div class="matiere vert-bouteille"></div><span>Vert bouteille</span></div>
+          <div class="plaque"><div class="matiere cerise"></div><span>Cerise</span></div>
+          <div class="plaque"><div class="matiere bleu-nuit"></div><span>Bleu nuit</span></div>
+          <div class="plaque"><div class="matiere miel"></div><span>Miel</span></div>
+          <div class="plaque"><div class="matiere cristal-rose"></div><span>Cristal rosé</span></div>
+        </div>
+          <p class="note-plaques">Exemples de coloris d'acétate</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="collections">
+    <div class="wrap">
+      <div class="tete">
+        <p class="label">Prêt-à-porter</p>
+        <h2>Des collections <em>pour chacun.</em></h2>
+      </div>
+      <p class="intro-rayons">Le sur mesure n'est qu'une partie de notre maison. Au magasin, nous avons sélectionné des collections spécialisées en lunetterie, pour toute la famille, jusqu'au sport et à la protection balistique. À essayer sur place, avec nos conseils.</p>
+      <div class="rayons">
+        <article class="rayon"><span class="label">Collection</span><h3>Femme</h3><p>Des montures choisies pour leur élégance et leur caractère, des lignes les plus fines aux formes affirmées.</p></article>
+        <article class="rayon"><span class="label">Collection</span><h3>Homme</h3><p>Des modèles sobres ou plus audacieux, en acétate comme en métal, pour tous les styles.</p></article>
+        <article class="rayon"><span class="label">Collection</span><h3>Enfant</h3><p>Des montures solides, confortables et adaptées à leur visage, pour bien voir à l'école comme au jeu.</p></article>
+        <article class="rayon"><span class="label">Collection</span><h3>Solaires</h3><p>Des solaires avec ou sans correction, pour protéger vos yeux avec style toute l'année.</p></article>
+        <article class="rayon"><span class="label">Sport</span><h3>Lunettes de sport</h3><p>Des lunettes et des masques adaptés à votre discipline, avec ou sans correction.</p><ul><li>Cyclisme</li><li>Natation</li><li>Plongée</li><li>Sport en salle</li></ul></article>
+        <article class="rayon"><span class="label">Protection</span><h3>Balistique</h3><p>Des lunettes de protection balistique pour le tir et les professionnels exposés, avec ou sans correction.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="sur-mesure" style="padding-top:0">
+    <div class="wrap">
+      <div class="tete">
+        <p class="label">Sur mesure</p>
+        <h2>Une monture qui n'existe <em>qu'une fois.</em></h2>
+      </div>
+      <figure class="photo atelier">
+        <video src="media/atelier.mp4" poster="media/poster-atelier.jpg" autoplay muted loop playsinline aria-label="Une monture taillée à l'atelier"></video>
+        <figcaption>Une monture taillée à l'atelier.</figcaption>
+      </figure>
+      <div class="etapes">
+        <div class="etape"><span class="n">01</span><h3>Le visage</h3><p>Nous prenons vos mesures et étudions la morphologie de votre visage.</p></div>
+        <div class="etape"><span class="n">02</span><h3>Le dessin</h3><p>Forme, épaisseur, couleur : nous dessinons la monture avec vous.</p></div>
+        <div class="etape"><span class="n">03</span><h3>La réalisation</h3><p>Votre monture est réalisée à vos mesures et équipée de verres adaptés à votre vue.</p></div>
+        <div class="etape"><span class="n">04</span><h3>L'ajustement</h3><p>Nous l'ajustons sur votre visage, puis nous la suivons dans le temps.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block ailleurs" id="ailleurs">
+    <div class="wrap">
+      <div class="tete">
+        <p class="label">Hors les murs</p>
+        <h2>Nous venons <em>à vous.</em></h2>
+      </div>
+      <div class="duo">
+        <article>
+          <p class="label">Chaque lundi</p>
+          <h3>À domicile</h3>
+          <p>Le lundi, le magasin est fermé : c'est notre journée de visites. Nous venons chez vous avec notre matériel et un choix de montures. Sur rendez-vous.</p>
+          <a class="lien" href="#films">Voir le film</a>
+        </article>
+        <article>
+          <p class="label">Entreprises</p>
+          <h3>Lunettes de sécurité</h3>
+          <p>Lunettes de protection, avec ou sans correction, pour vos équipes. Nous nous déplaçons dans votre entreprise pour les mesures et les essayages.</p>
+          <a class="lien" href="#films">Voir le film</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="block dark" id="films">
+    <div class="wrap">
+      <div class="tete">
+        <p class="label">Films</p>
+        <h2>L'Art en Lunettes <em>en images.</em></h2>
+      </div>
+      <div class="films">
+        <div class="film film-grand">
+          <video src="media/film-savoir-faire.mp4" poster="media/poster-savoir-faire.jpg" controls preload="none" playsinline></video>
+          <span class="label">Notre savoir-faire</span>
+          <h3>Du dessin à la monture</h3>
+        </div>
+        <div class="cote">
+          <div class="film">
+            <video src="media/film-domicile.mp4" poster="media/poster-domicile.jpg" controls preload="none" playsinline></video>
+            <span class="label">Chaque lundi</span>
+            <h3>Le service à domicile</h3>
+          </div>
+          <div class="film">
+            <video src="media/film-securite.mp4" poster="media/poster-securite.jpg" controls preload="none" playsinline></video>
+            <span class="label">Entreprises</span>
+            <h3>Les lunettes de sécurité</h3>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block dark" id="contact" style="border-top:1px solid var(--filet-sombre)">
+    <div class="wrap contact">
+      <div>
+        <p class="label muted">Rendez-vous</p>
+        <h2 style="margin-top:24px">Venez nous <em>rencontrer.</em></h2>
+        <div class="coord">
+          <div><span class="label">Magasin</span><a href="tel:+3269232784">069 23 27 84</a></div>
+          <div><span class="label">GSM</span><a href="tel:+32487076957">0487 07 69 57</a></div>
+          <div><span class="label">Adresse</span><span class="v">Rue Pont à la Faulx 28<br>7600 Péruwelz</span>
+            <a class="lien" href="https://www.google.com/maps/search/?api=1&query=Rue+Pont+%C3%A0+la+Faulx+28+7600+P%C3%A9ruwelz">Itinéraire</a></div>
+        </div>
+      </div>
+      <div class="horaires">
+        <table>
+          <tbody>
+            <tr data-days="1"><th scope="row">Lundi</th><td>À domicile, sur rendez-vous</td></tr>
+            <tr data-days="2,3,4,5"><th scope="row">Mardi au vendredi</th><td>10h00 – 12h30 · 13h30 – 18h30</td></tr>
+            <tr data-days="6"><th scope="row">Samedi</th><td>10h00 – 12h30 · 13h30 – 17h30</td></tr>
+            <tr data-days="0"><th scope="row">Dimanche</th><td>Fermé</td></tr>
+          </tbody>
+        </table>
+        <p class="etat" id="etat" hidden><i></i><span></span></p>
+        <figure class="photo magasin"><img src="media/magasin.jpg" alt="L'intérieur du magasin L'Art en Lunettes à Péruwelz" width="800" height="600" loading="lazy"></figure>
+        <p class="legende">Le magasin, rue Pont à la Faulx.</p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap pied">
+    <img src="logo-full.png" alt="L'Art en Lunettes" width="36" height="70">
+    <span class="devise">Soyez acteur de votre regard.</span>
+    <span>L'Art en Lunettes SRL · BE 0777.633.855</span>
+  </div>
+</footer>
+
+<script>
+(function () {
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* Menu GSM */
+  var btn = document.getElementById('menuBtn'), menu = document.getElementById('menu');
+  btn.addEventListener('click', function () {
+    var open = menu.classList.toggle('open');
+    btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    btn.textContent = open ? 'Fermer' : 'Menu';
+  });
+  menu.addEventListener('click', function (e) {
+    if (e.target.tagName === 'A') { menu.classList.remove('open'); btn.setAttribute('aria-expanded', 'false'); btn.textContent = 'Menu'; }
+  });
+
+  /* Bandeau : contenu doublé pour une boucle continue */
+  var b = document.getElementById('bandeau');
+  b.insertAdjacentHTML('beforeend', b.innerHTML.replace(/<span>/g, '<span aria-hidden="true">'));
+
+  /* Un seul film à la fois */
+  var films = document.querySelectorAll('.film video');
+  films.forEach(function (v) { v.addEventListener('play', function () { films.forEach(function (o) { if (o !== v) o.pause(); }); }); });
+  if (reduce) { var at = document.querySelector('.atelier video'); if (at) { at.removeAttribute('autoplay'); at.pause(); at.controls = true; } }
+
+  /* Le visage se dessine à la plume */
+  if (!reduce) {
+    var trait = document.getElementById('trait'), portrait = document.getElementById('portrait');
+    try { portrait.style.setProperty('--len', Math.ceil(trait.getTotalLength())); portrait.classList.add('draw'); } catch (e) {}
+  }
+
+  /* Ouvert maintenant ? (heure de Belgique) */
+  try {
+    var parts = new Intl.DateTimeFormat('en-GB', { timeZone: 'Europe/Brussels', weekday: 'short', hour: '2-digit', minute: '2-digit', hour12: false }).formatToParts(new Date());
+    var map = { Sun: 0, Mon: 1, Tue: 2, Wed: 3, Thu: 4, Fri: 5, Sat: 6 }, wd, h, m;
+    parts.forEach(function (p) { if (p.type === 'weekday') wd = map[p.value]; if (p.type === 'hour') h = +p.value; if (p.type === 'minute') m = +p.value; });
+    if (wd !== undefined) {
+      var mins = h * 60 + m, fin = wd === 6 ? 1050 : 1110;
+      var ouvert = wd >= 2 && ((mins >= 600 && mins < 750) || (mins >= 810 && mins < fin));
+      var el = document.getElementById('etat');
+      el.querySelector('span').textContent = ouvert ? 'Ouvert en ce moment' : (wd === 1 ? "Aujourd'hui, visites à domicile" : 'Fermé en ce moment');
+      if (ouvert) el.classList.add('ouvert');
+      el.hidden = false;
+      document.querySelectorAll('.horaires tr').forEach(function (tr) {
+        if (tr.dataset.days.split(',').indexOf(String(wd)) > -1) tr.classList.add('now');
+      });
+    }
+  } catch (e) {}
+})();
+</script>
+</body>
+</html>
